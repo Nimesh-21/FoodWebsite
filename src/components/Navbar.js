@@ -5,6 +5,9 @@ import Modal from '../Modal';
 import Cart from '../screens/Cart';
 import { useCart } from './ContextReducer';
 import DinnerDiningIcon from '@mui/icons-material/DinnerDining';
+import LoginIcon from '@mui/icons-material/Login';
+import LogoutIcon from '@mui/icons-material/Logout';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 export default function Navbar() {
   const [cartView,setCartView]=useState(false);
@@ -36,16 +39,16 @@ export default function Navbar() {
       </ul>
       {!localStorage.getItem("authToken") ? 
       <div className="d-flex">
-          <Link className="btn bg-white text-success mx-1" to="/login">Login</Link>
+          <Link className="btn bg-white text-success mx-1" to="/login">Login<LoginIcon/></Link>
           <Link className="btn bg-white text-success mx-1" to="/createuser">Signup</Link>
         </div> :
         <div>
         <div className="btn bg-white text-success mx-1" onClick={()=>{setCartView(true)}}>
-          My Cart {" "}
+        <ShoppingCartIcon/>  My Cart {" "}
         {data.length ? <Badge pill bg='danger'>{data.length}</Badge>:null}
         </div>
 {cartView ? <Modal onClose={()=>setCartView(false)}><Cart/></Modal> : null}
-        <div className="btn bg-white text-danger mx-1" onClick={handleLogout} >Logout</div>
+        <div className="btn bg-white text-danger mx-1" onClick={handleLogout} >Logout<LogoutIcon/></div>
         </div>
        }
        
