@@ -1,3 +1,4 @@
+@import url(//db.onlinewebfonts.com/c/c203253973e905e4e88b5ccd5728cce4?family=Replica-Bold);
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,9 +6,56 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: "Replica-Bold" !important;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.loginpage{
+  background-image: url('https://img.freepik.com/free-photo/tasty-pizza-near-ingredients_23-2147772080.jpg?w=1060&t=st=1685521432~exp=1685522032~hmac=8c82d4b568159b0e8d891bba20ecccd2665546510acf722aeb59bb774abf1249');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.signuppage{
+  position: relative;
+  color: white;
+  /* background-image: url('https://previews.123rf.com/images/marchie/marchie1505/marchie150500028/40081640-seamless-pattern-background-fast-food.jpg');
+  
+  background-repeat: no-repeat;
+  background-size: cover; */
+}
+.signuppage::after {
+  content: "";
+  opacity: 0.4;
+  background: rgb(26, 31, 41) url("https://previews.123rf.com/images/marchie/marchie1505/marchie150500028/40081640-seamless-pattern-background-fast-food.jpg") no-repeat fixed top;
+  background-blend-mode: luminosity;
+  /* also change the blend mode to what suits you, from darken, to other 
+  many options as you deem fit*/
+  background-size: cover;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+  z-index: -1;
+  height: 100vh;
+}
+
+.navb{
+  background-image: url("https://uploads-ssl.webflow.com/5a9ee6416e90d20001b20038/635a93d9f6b36a1df9bb9bd7_horizontal%20(15).svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.home{
+  background-image: url("https://wallpapercosmos.com/w/full/9/0/6/1210119-3840x2160-desktop-4k-glow-in-the-dark-background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#carousel{
+ 
+  max-height: 500px;
+  
 }
