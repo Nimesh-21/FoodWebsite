@@ -59,3 +59,17 @@ code {
   max-height: 500px;
   
 }
+
+.locatio{
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.locatio input{
+  padding-right: 40px; /* Adjust this value based on your button's width */
+  flex: 1;
+}
+.locatio button{
+  position: absolute;
+  right: 5px; /* Adjust this value as needed */
+}

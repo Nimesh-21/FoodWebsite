@@ -83,4 +83,25 @@ async (req, res) => {
     }
 })
 
+router.post("/checkemail",
+async (req, res) => {
+  // Finds the validation errors in this request and wraps them in an object with handy functions
+  
+    try{
+      const user=  await User.findOne({
+           email: req.body.email,
+          })
+      
+          if(user){
+            return res.json({available: !user});
+          }
+
+    }
+
+    catch(error){
+        console.log(error);
+        res.json({success:false});
+    }
+})
+
 module.exports=router;
