@@ -73,3 +73,8 @@ code {
   position: absolute;
   right: 5px; /* Adjust this value as needed */
 }
+.noorder{
+  text-align: center;
+  padding-top: 10%;
+  padding-bottom: 10%;
+}
