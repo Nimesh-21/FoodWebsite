@@ -15,42 +15,45 @@ export default function Signup() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const emailResponse = await fetch("http://localhost:5000/api/checkemail", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({ email: credentials.email })
-  });
+  //   const emailResponse = await fetch("http://localhost:5000/api/checkemail", {
+  //   method: "POST",
+  //   headers: {
+  //     "Content-Type": "application/json"
+  //   },
+  //   body: JSON.stringify({ email: credentials.email })
+  // });
 
-  const emailJson = await emailResponse.json();
-  if (!emailJson.available) {
-    // Email is already registered
+  // const emailJson = await emailResponse.json();
+  // if (!emailJson.available) {
+  //   // Email is already registered
+  //   alert("Email is already registered.");
+  //   return;
+  // }
+  const response = await fetch("http://localhost:5000/api/createuser", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    name: credentials.name,
+    password: credentials.password,
+    email: credentials.email,
+    location: credentials.location
+  })
+});
+
+const json = await response.json();
+console.log(json);
+if (!json.success) {
+  if (json.message && json.message === "Email is already registered.") {
     alert("Email is already registered.");
-    return;
+  } else {
+    alert("Enter Valid Credentials!!!");
   }
-    const response = await fetch("http://localhost:5000/api/createuser", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        name: credentials.name,
-        password: credentials.password,
-        email: credentials.email,
-        location: credentials.location
-      })
-    });
+} else {
+  navigate("/login");
+}
 
-    const json = await response.json();
-    console.log(json);
-    if (!json.success) {
-      alert("Enter Valid Credentials!!!");
-    }
-
-    if (json.success) {
-      navigate("/login");
-    }
   }
 
   const handleChange = (event) => {
